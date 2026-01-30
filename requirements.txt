@@ -1,0 +1,8 @@
+transformers==4.52.1
+accelerate
+einops
+timm
+numpy
+pillow
+decord
+
