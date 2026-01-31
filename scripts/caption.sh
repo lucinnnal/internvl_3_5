@@ -7,7 +7,7 @@
 #   variable when running the script (e.g., `CUDA_VISIBLE_DEVICES=1 ./caption.sh`).
 # - Multiple GPUs can be specified by separating them with commas (e.g., "0,1").
 # =====================================================================================
-export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-5, 6} 
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0,1,2,3} 
 
 echo "Running captioning with CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 

@@ -125,12 +125,6 @@ def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=3
     return pixel_values, num_patches_list
 
 def main(args):
-
-    # Load Model to 4 GPUs with max memory 20GiB for each gpu
-    max_memory = {
-    0: "17GiB",
-    1: "17GiB"
-    }
     
     # Seed
     if args.seed is not None:
@@ -149,7 +143,6 @@ def main(args):
         use_flash_attn=True,
         trust_remote_code=True,
         low_cpu_mem_usage=True,
-        max_memory=max_memory,
         device_map="auto").eval()
     tokenizer = AutoTokenizer.from_pretrained(args.model_name, trust_remote_code=True, use_fast=False)
     generation_config = dict(max_new_tokens=1024, do_sample=False)

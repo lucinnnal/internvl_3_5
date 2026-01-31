@@ -38,16 +38,20 @@ Move downloaded data to original folder data/
 bash scripts/caption.sh
 ```
 
+## Model Mem
+![model_mem](assets/memory.png)
+
 ## Bash details
 caption.sh..
 
 - `CUDA_VISIBLE_DEVICES`를 설정해 **사용할 GPU 번호**를 지정.
-  - 기본값: `0,1,2,3,4`
+  - 기본값: `0,1,2,3,`
   - `--model-name`: 사용할 체크포인트(Hugging Face repo)
   - `--input-json-path`: 비디오 경로가 들어있는 JSON 파일
   - `--output-json-path`: 결과 캡션을 저장할 JSON 파일
   - `--use-sys-prompt`, `--sys-prompt`: 시스템 프롬프트 사용 여부 및 내용
   - `--question-suffix`: 메인 query
+  - `--num_segments 32` : 추출할 프레임 수
 
 ```bash
 #!/bin/bash
@@ -59,7 +63,7 @@ caption.sh..
 #   variable when running the script (e.g., `CUDA_VISIBLE_DEVICES=1 ./caption.sh`).
 # - Multiple GPUs can be specified by separating them with commas (e.g., "0,1").
 # =====================================================================================
-export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-5, 6} 
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0,1,2,3} 
 
 echo "Running captioning with CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 
@@ -72,10 +76,9 @@ echo "Running captioning with CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 #   --model-name "OpenGVLab/InternVL3_5-8B"
 #
 python internvl_3_5_captioning.py \
-   --model-name "OpenGVLab/InternVL3_5-1B" \
+   --model-name "OpenGVLab/InternVL3_5-38B" \
    --input-json-path video_eval_paths/L5_video_paths.json \
    --output-json-path L5_internvl_output_captions.json \
    --prompts-json /home/kipyokim/internvl3.5/prompts.json \
    --use-sys-prompt False \
-   --num_segments 16 \
-```
+   --num_segments 32 \
