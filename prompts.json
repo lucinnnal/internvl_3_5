@@ -4,6 +4,6 @@
         "Give a detailed account of everything shown in the video, capturing all visible specifics. Describe events in the exact order they appear over time. Ensure that you describe the sequence of events exactly as they occur, without skipping any steps.",
         "Describe the video in detail, paying special attention to how objects and people interact with each other. Capture the precise timing and nature of every contact, movement, and reaction shown in the footage.",
         "Thoroughly describe the video’s visual narrative, capturing every visible detail from start to end. Emphasize how actions unfold and how the scene transitions logically over time.",
-        "Provide a detailed, continuous description of everything visible in the video. Describe only what is directly visible. Do not guess, assume, or add anything that is not clearly shown (e.g., implied audio, invisible causes, or future events)"
+        "Provide a thorough description of every detail, explicitly prioritizing spatio-temporal dynamics. Capture all visual elements, and focus on their spatial positions, movement trajectories, and how the scene evolves over time."
     ]
 }
